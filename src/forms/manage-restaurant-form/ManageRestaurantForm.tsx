@@ -5,6 +5,10 @@ import { z } from "zod";
 import DetailsSection from "./DetailsSection";
 import { Separator } from "@/components/ui/separator";
 import CuisinesSection from "./CuisinesSection";
+import MenuSection from "./MenuSection";
+import ImageSection from "./ImageSection";
+import LoadingButton from "@/components/LoadingButton";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
   restaurantName: z.string({
@@ -34,7 +38,7 @@ const formSchema = z.object({
   imageFile: z.instanceof(File, { message: "Image is required" }),
 });
 
-type restaurantFormData = z.infer<typeof formSchema>
+type RestaurantFormData = z.infer<typeof formSchema>
 
 type Props = {
   onSave: (restaurantFormData: FormData) => void;
@@ -42,7 +46,7 @@ type Props = {
 };
 
 const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
-  const form = useForm<restaurantFormData>({
+  const form = useForm<RestaurantFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       cuisines: [],
@@ -50,9 +54,9 @@ const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
     },
   });
 
-  const onSubmit = (formDataJson: restaurantFormData) => {
-    // Convert formDataJson to a new Formdata object
-  }
+  const onSubmit = (formDataJson: RestaurantFormData) => {
+    const formData = new FormData();
+  };
 
   return (
     <Form {...form}>
@@ -60,6 +64,11 @@ const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
         <DetailsSection />
         <Separator />
         <CuisinesSection />
+        <Separator />
+        <MenuSection />
+        <Separator />
+        <ImageSection />
+        {isLoading ? <LoadingButton /> : <Button type="submit">Submit</Button>}
       </form>
     </Form>
   )

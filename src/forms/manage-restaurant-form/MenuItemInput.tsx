@@ -31,8 +31,8 @@ const MenuItemInput = ({ index, removeMenuItem }: Props) => {
         </FormItem>
       )} />
 
-      <Button type>
-
+      <Button type="button" onClick={removeMenuItem} className="bg-red-500 max-h-fit">
+        Remove
       </Button>
     </div>
   );
