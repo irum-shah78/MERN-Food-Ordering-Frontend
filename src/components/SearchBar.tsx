@@ -1,7 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Form } from "./ui/form";
+import { Form, FormField, FormItem } from "./ui/form";
+import { Search } from "lucide-react";
 
 const formSchema = z.object({
   searchQuery: z.string({
@@ -27,7 +28,11 @@ const SearchBar = ({ onSubmit, onReset, placeHolder }: Props) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}></form>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <Search strokeWidth={2.5} size={30} className="ml-1 text-orange-500 hidden md:block" />
+
+        <FormField control={form.control} name="searchQuery" render={({ field }) => <FormItem className="flex-1"></FormItem>} />
+      </form>
     </Form>
   );
 };
