@@ -6,10 +6,13 @@ const SearchPage = () => {
   const { results } = useSearchRestaurants(city);
 
   return (
-    <span>User Searched for {city}{" "} 
-    <span>{results?.data.map((restaurant) => (<span> found - {restaurant.restaurantName}, {restaurant.city}
-    </span>))}
-    </span>
+    <span>
+      User Searched for {city}{" "}
+      <span>{results?.data.map((restaurant) => (
+        <span> found - {restaurant.restaurantName}, {restaurant.city}
+        </span>
+      ))}
+      </span>
     </span>
   );
 };
