@@ -7,7 +7,7 @@ const SearchPage = () => {
 
   return (
     <span>
-      User Searched for {city}
+      User Searched for {city}{" "}
       <span>{results?.data.map((restaurant) => (
         <span> found - {restaurant.restaurantName}, {restaurant.city}
         </span>
