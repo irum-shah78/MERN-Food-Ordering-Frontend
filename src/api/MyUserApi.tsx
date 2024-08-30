@@ -58,8 +58,6 @@ export const useCreateMyUser = () => {
       throw new Error('Failed to create user');
     }
   };
-
-
   const {
     mutateAsync: createUser,
     isLoading,

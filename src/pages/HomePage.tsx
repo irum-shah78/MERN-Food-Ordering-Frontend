@@ -29,7 +29,7 @@ const HomePage = () => {
             Order takeaway even faster!
           </span>
           <span>
-            Download the ITEats App for faster ordering and personalised recommendations
+            Download the ITEats App for faster ordering and personalised recommendations!
           </span>
           <img src={appDownloadImage} alt="download app" />
         </div>
